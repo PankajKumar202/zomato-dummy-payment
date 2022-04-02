@@ -17,12 +17,12 @@ app.post("/paynow", [parseUrl, parseJson], (req, res) => {
   // Route for making payment
   console.log(">>>>",req.body)
   var paymentDetails = {
-    orderID: req.body._id,
+    orderID: req.body.id,
     amount: req.body.cost,
     customerId: req.body.name,
     customerEmail: req.body.email,
     customerPhone: req.body.phone,
-    customerRest: req.body.restName
+    customerRest: req.body.Rest_name
 }
 if(!paymentDetails.amount || !paymentDetails.customerId || !paymentDetails.customerEmail || !paymentDetails.customerPhone || !paymentDetails.customerRest) {
     res.status(400).send('Payment failed')
