@@ -26,6 +26,7 @@ app.post("/paynow", [parseUrl, parseJson], (req, res) => {
 }
 if(!paymentDetails.amount || !paymentDetails.customerId || !paymentDetails.customerEmail || !paymentDetails.customerPhone || !paymentDetails.customerRest) {
     res.status(400).send('Payment failed')
+    console.log(err)
 } else {
     var params = {};
     params['MID'] = config.PaytmConfig.mid;
