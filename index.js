@@ -17,7 +17,7 @@ app.post("/paynow", [parseUrl, parseJson], (req, res) => {
   // Route for making payment
   console.log(">>>>",req.body)
   var paymentDetails = {
-    orderID: req.body.id,
+    orderID: req.body._id,
     amount: req.body.cost,
     customerId: req.body.name,
     customerEmail: req.body.email,
@@ -28,6 +28,7 @@ if(!paymentDetails.amount || !paymentDetails.customerId || !paymentDetails.custo
     res.status(400).send('Payment failed')
     console.log(err)
 } else {
+  
     var params = {};
     params['MID'] = config.PaytmConfig.mid;
     params['WEBSITE'] = config.PaytmConfig.website;
